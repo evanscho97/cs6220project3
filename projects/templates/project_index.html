@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>e-Commerce System</h1>
+<h4 style="text-align:right;">User: Zijian Cao</h4>
+    <a href="{% url 'project_shopping_cart'%}"
+                   class="btn btn-primary">
+                    Shopping Cart
+                </a>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project.image %}" width="200" height="300">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.item_name }}</h5>
+                <p class="card-text">{{ project.item_description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary">
+                    Item Details
+                </a>
+                <a href="{% url 'project_add' project.pk %}"
+                   class="btn btn-primary">
+                    Add to Cart
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

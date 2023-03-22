@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Your Cart</h1>
+<h4 style="text-align:right;">User: Zijian Cao</h4>
+    <a href="{% url 'project_index'%}"
+                   class="btn btn-primary">
+                    Back to Home
+    </a>
+    <a class="btn btn-primary">
+                    Place Order (placeholder)
+    </a>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project.image %}" width="200" height="300">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.item_name }}</h5>
+                <p class="card-title">Item Added: </p>
+                <p class="card-title">{{ project.item_added }}</p>
+                <a href="{% url 'project_add' project.pk %}"
+                   class="btn btn-primary">
+                    Add
+                </a>
+                <a href="{% url 'project_remove' project.pk %}"
+                   class="btn btn-primary">
+                    Remove
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

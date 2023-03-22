@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h5>You successfully removed one(1) {{ project.item_name }} from your cart!</h5>
+    <a href="{% url 'project_shopping_cart'%}"
+                   class="btn btn-primary">
+                    Back to home
+    </a>
+
+{% endblock %}

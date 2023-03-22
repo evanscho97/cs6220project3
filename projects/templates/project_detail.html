@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ project.item_name }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{% static project.image %}" alt="" width="600" height="400">
+    </div>
+    <div class="col-md-4">
+        <h5>Item Name:</h5>
+        <p>{{ project.item_name }}</p>
+        <br>
+        <h5>Description:</h5>
+        <p>{{ project.item_description }}</p>
+        <br>
+        <h5>Category:</h5>
+        <p>{{ project.item_category }}</p>
+        <a href="{% url 'project_index' %}"
+                   class="btn btn-primary">
+                    Back to home
+        </a>
+    </div>
+</div>
+{% endblock %}
